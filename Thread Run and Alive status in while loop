@@ -1,0 +1,133 @@
+// Thread Extended by class
+
+package Session8;
+
+public class mythread extends Thread{
+	
+	
+
+	public void run(){
+		
+		//System.out.println("Print the count of " + Thread.currentThread().getName());
+		
+		try{
+		
+		for (int count = 0; count <= 10 ; count++)
+			
+		{
+			
+			System.out.println("Printing the count: " + count);
+			
+			System.out.println(" ");
+			
+			Thread.sleep(100);
+		}
+		
+		} catch (InterruptedException e)
+		{
+			System.out.println("Thread Interrupted!!!!!!!!!!");
+		}
+		
+		System.out.println(getName() + " Run is over !!!!!!!!!!!!! ");
+	}
+
+}
+
+
+// Main Class
+
+package Session8;
+
+public class ThreadPrintExec {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		mythread tc = new mythread();
+		
+		//Thread tc=new Thread(tp);
+		
+						
+		
+		
+		
+		System.out.println(tc.getName() + " created Thread [" + tc.getName() + " extending Thread," + tc.getPriority() +"," + Thread.currentThread().getName() + "]" );
+		
+		System.out.println(" ");
+		
+		
+		tc.start();
+		
+		while(tc.isAlive())			
+		{
+			try {
+				
+				System.out.println("Main thread will be alive till the child thread is live");
+				
+				System.out.println(" ");
+							
+				
+				Thread.sleep(200);
+				
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				
+				System.out.println("Thread Interupted!!!!!!!!!!");
+				
+			}
+					
+			
+		}
+		
+		System.out.println(" ");
+		
+		System.out.println("Main Thread's Run is over !!!!!!!!!!!!!");
+
+	}
+
+}
+
+/* Output
+
+Thread-0 created Thread [Thread-0 extending Thread,5,main]
+ 
+Main thread will be alive till the child thread is live
+ 
+Printing the count: 0
+ 
+Printing the count: 1
+ 
+Main thread will be alive till the child thread is live
+ 
+Printing the count: 2
+ 
+Printing the count: 3
+ 
+Main thread will be alive till the child thread is live
+ 
+Printing the count: 4
+ 
+Printing the count: 5
+ 
+Main thread will be alive till the child thread is live
+ 
+Printing the count: 6
+ 
+Printing the count: 7
+ 
+Main thread will be alive till the child thread is live
+ 
+Printing the count: 8
+ 
+Printing the count: 9
+ 
+Main thread will be alive till the child thread is live
+ 
+Printing the count: 10
+ 
+Thread-0 Run is over !!!!!!!!!!!!! 
+ 
+Main Thread's Run is over !!!!!!!!!!!!!
+
+
+*/
